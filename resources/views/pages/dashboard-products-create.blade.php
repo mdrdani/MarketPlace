@@ -88,9 +88,9 @@
           >
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Shirup Marzan</h2>
+                <h2 class="dashboard-title">Add New Product</h2>
                 <p class="dashboard-subtitle">
-                  Product Details
+                  Create your own product
                 </p>
               </div>
               <div class="dashboard-content">
@@ -148,78 +148,36 @@ The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air uni
                                 </textarea>
                               </div>
                             </div>
-                            <div class="col">
-                              <button
-                                type="submit"
-                                class="btn btn-success btn-block px-5"
-                              >
-                                Update Product
-                              </button>
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="thumbnails">Thumbnails</label>
+                                <input
+                                  type="file"
+                                  multiple
+                                  class="form-control pt-1"
+                                  id="thumbnails"
+                                  aria-describedby="thumbnails"
+                                  name="thumbnails"
+                                />
+                                <small class="text-muted">
+                                  Kamu dapat memilih lebih dari satu file
+                                </small>
+                              </div>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col">
+                          <button
+                            type="submit"
+                            class="btn btn-success btn-block px-5"
+                          >
+                            Save Now
+                          </button>
                         </div>
                       </div>
                     </form>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-12">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <div class="gallery-container">
-                              <img
-                                src="/images/product-card-1.png"
-                                alt=""
-                                class="w-100"
-                              />
-                              <a class="delete-gallery" href="#">
-                                <img src="/images/icon-delete.svg" alt="" />
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="gallery-container">
-                              <img
-                                src="/images/product-card-2.png"
-                                alt=""
-                                class="w-100"
-                              />
-                              <a class="delete-gallery" href="#">
-                                <img src="/images/icon-delete.svg" alt="" />
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="gallery-container">
-                              <img
-                                src="/images/product-card-3.png"
-                                alt=""
-                                class="w-100"
-                              />
-                              <a class="delete-gallery" href="#">
-                                <img src="/images/icon-delete.svg" alt="" />
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col mt-3">
-                            <input
-                              type="file"
-                              id="file"
-                              style="display: none;"
-                              multiple
-                            />
-                            <button
-                              class="btn btn-secondary btn-block"
-                              onclick="thisFileUpload();"
-                            >
-                              Add Photo
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -235,3 +193,4 @@ The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air uni
           CKEDITOR.replace( 'editor' );
     </script>
 @endpush
+
