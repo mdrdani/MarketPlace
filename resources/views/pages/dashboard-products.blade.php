@@ -97,7 +97,7 @@
                 <div class="row">
                   <div class="col-12">
                     <a
-                      href="/dashboard-products-create.html"
+                      href="/dashboard/products/add"
                       class="btn btn-success"
                       >Add New Product</a
                     >

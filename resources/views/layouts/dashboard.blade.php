@@ -31,22 +31,22 @@
               >Dashboard</a
             >
             <a
-              href="/dashboard-products.html"
+              href="/dashboard/products"
               class="list-group-item list-group-item-action"
               >My Products</a
             >
             <a
-              href="/dashboard-transactions.html"
+              href="/dashboard/transactions"
               class="list-group-item list-group-item-action"
               >Transactions</a
             >
             <a
-              href="/dashboard-settings.html"
+              href="/dashboard/settings"
               class="list-group-item list-group-item-action"
               >Store Settings</a
             >
             <a
-              href="/dashboard-account.html"
+              href="/dashboard/account"
               class="list-group-item list-group-item-action"
               >My Account</a
             >
