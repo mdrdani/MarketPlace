@@ -12,7 +12,7 @@
     <title>@yield('title')</title>
     @stack('prepend-style')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link href="style/main.css" rel="stylesheet" />
+    <link href="/style/main.css" rel="stylesheet" />
     @stack('addon-style')
   </head>
 
@@ -27,7 +27,7 @@
           <div class="list-group list-group-flush">
             <a
               href="/dashboard"
-              class="list-group-item list-group-item-action active"
+              class="list-group-item list-group-item-action"
               >Dashboard</a
             >
             <a
