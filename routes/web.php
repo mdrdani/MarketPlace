@@ -17,13 +17,17 @@ Route::get('/categories', 'CategoryController@index')->name('categories');
 Route::get('/details/{id}', 'DetailController@index')->name('detail');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/success', 'CartController@success')->name('success');
-
 Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
 
+// Controller Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+// Controller Products
 Route::get('/dashboard/products', 'DashboardProductController@index')->name('dashboard-product');
 Route::get('/dashboard/products/add', 'DashboardProductController@create')->name('dashboard-product-details-create');
 Route::get('/dashboard/products/{id}', 'DashboardProductController@details')->name('dashboard-product-details');
+
+// Controller Transactions
+Route::get('/dashboard/transactions', 'DashboardTransactionController@index')->name('dashboard-transaction');
 
 Auth::routes();
