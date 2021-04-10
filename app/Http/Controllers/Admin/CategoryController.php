@@ -103,6 +103,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $item = Category::findOrFail($id);
+        return view('pages.admin.category.edit', ['item' => $item]);
     }
 
     /**
@@ -115,6 +117,18 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, $id)
     {
         //
+        $data = $request->all();
+        
+        $data['slug'] = Str::slug($request->name);
+
+        $data['photo'] = $request->file('photo')->store('assets/category', 'public');
+
+        $item = Category::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('category.index');
+
     }
 
     /**
