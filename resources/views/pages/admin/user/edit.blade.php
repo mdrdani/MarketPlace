@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Category
+    User
 @endsection
 
 @section('content')
@@ -11,9 +11,9 @@
           >
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Category</h2>
+                <h2 class="dashboard-title">User</h2>
                 <p class="dashboard-subtitle">
-                  Edit Category
+                  Edit User
                 </p>
               </div>
               <div class="dashboard-content">
@@ -30,22 +30,42 @@
                       @endif
                     <div class="card">
                       <div class="card-body">
-                            <form action="{{ route('category.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('user.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Nama Kategori</label>
-                                                <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
-                                            </div>
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Nama User</label>
+                                            <input type="text" name="name" required class="form-control" value="{{ $item->name }}">
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Foto</label>
-                                                <input type="file" name="photo" class="form-control" >
-                                            </div>
-                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                          <label for="">Email User</label>
+                                          <input type="email" name="email" class="form-control" required value="{{ $item->email }}">
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Password User</label>
+                                        <input type="password" name="password" class="form-control">
+                                        <small>Kosongkan Jika tidak ingin mengganti password</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                      <label for="">Roles User</label>
+                                      <select name="roles" required class="form-control">
+                                          <option value="{{ $item->roles }}" selected>Tidak diganti</option>
+                                          <option value="ADMIN">Admin</option>
+                                          <option value="USER">User</option>
+                                      </select>
+                                  </div>
+                              </div>
                                     </div>
                                     <div class="row">
                                         <div class="col text-right">
