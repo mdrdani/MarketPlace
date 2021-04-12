@@ -32,7 +32,7 @@
               >Dashboard</a
             >
             <a
-              href="#"
+              href="{{ route('product.index') }}"
               class="list-group-item list-group-item-action"
               >Products</a
             >
