@@ -28,8 +28,8 @@ class ProductRequest extends FormRequest
             'name' => 'required|max:255',
             'users_id' => 'required|exists:users,id', 
             'categories_id' => 'required|exists:categories,id',
-            'description' => 'required|integer',
-            'slug' => 'required'
+            'price' => 'required|integer',
+            'deskripsi' => 'required',
         ];
     }
 }
