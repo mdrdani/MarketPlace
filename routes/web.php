@@ -43,6 +43,7 @@ Route::prefix('admin')
             Route::resource('category','CategoryController');
             Route::resource('user','UserController');
             Route::resource('product', 'ProductController');
+            Route::resource('productgallery','ProductGalleryController');
         });
 
 Auth::routes();
