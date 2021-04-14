@@ -25,8 +25,8 @@ class ProductGalleryRequest extends FormRequest
     {
         return [
             //
-            'photos' => 'required|exists:products,id',
-            'products_id' => 'required|image',
+            'products_id' => 'required|exists:products,id',
+            'photo' => 'required|image',
         ];
     }
 }

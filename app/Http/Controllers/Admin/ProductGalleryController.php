@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ProductGalleryRequest;
+use App\Product;
 use App\ProductGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -34,9 +36,6 @@ class ProductGalleryController extends Controller
                                         Aksi
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('productgallery.edit', $item->id) . '">
-                                        Sunting
-                                    </a>
                                     <form action="' . route('productgallery.destroy', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
@@ -47,7 +46,7 @@ class ProductGalleryController extends Controller
                             </div>
                     </div>';
                 })
-                ->editColumn('photos', function($item){
+                ->editColumn('photo', function($item){
                     return $item->photo ? '<img src="' .  Storage::url($item->photo). '" style="max-height: 80px;" />' : '';
                 })
                 ->rawColumns(['action', 'photo'])
@@ -65,6 +64,11 @@ class ProductGalleryController extends Controller
     public function create()
     {
         //
+        $products = Product::all();
+
+        return view('pages.admin.product-gallery.create', [
+            'products' => $products
+        ]);
     }
 
     /**
@@ -73,9 +77,16 @@ class ProductGalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductGalleryRequest $request)
     {
         //
+        $data = $request->all();
+
+        $data['photo'] = $request->file('photo')->store('assets/productgallery','public'); 
+
+        ProductGallery::create($data);
+
+        return redirect()->route('productgallery.index');
     }
 
     /**
@@ -121,5 +132,9 @@ class ProductGalleryController extends Controller
     public function destroy($id)
     {
         //
+        $item = ProductGallery::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('productgallery.index');
     }
 }
