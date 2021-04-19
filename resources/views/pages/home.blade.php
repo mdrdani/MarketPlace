@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="row">
-                @php
+          @php
             $incrementsCategory = 0
           @endphp
             @forelse ($categories as $category)
