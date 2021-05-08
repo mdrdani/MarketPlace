@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.4",
         "sentry/sentry-laravel": "^2.3",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "veritrans/veritrans-php": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
