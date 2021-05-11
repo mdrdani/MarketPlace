@@ -45,6 +45,10 @@ Route::get('/dashboard/transactions/{id}', 'DashboardTransactionController@detai
 Route::get('/dashboard/settings', 'DashboardSettingController@store')->name('dashboard-settings-store');
 Route::get('/dashboard/account', 'DashboardSettingController@account')->name('dashboard-settings-account');
 
+// Controller Process Midtrans
+Route::post('/checkout', 'CheckoutController@process')->name('checkout');
+Route::post('/checkout/callback','CheckoutController@callback')->name('midtrans-callback');
+
 
 // ->middleware(['auth','admin'])
 Route::prefix('admin')
