@@ -15,15 +15,21 @@ class CartController extends Controller
      */
     public function index()
     {
-        if(Auth::check())
-        {
-            $carts = Cart::with(['product.galleries','user'])->where('users_id', Auth::user()->id)->get();
+        // if(Auth::check())
+        // {
+        //     $carts = Cart::with(['product.galleries','user'])->where('users_id', Auth::user()->id)->get();
+        //     return view('pages.cart',[
+        //     'carts' => $carts
+        // ]);
+        // }else{
+        //     return redirect()->route('login');
+        // }
+
+        $carts = Cart::with(['product.galleries','user'])->where('users_id', Auth::user()->id)->get();
             return view('pages.cart',[
             'carts' => $carts
         ]);
-        }else{
-            return redirect()->route('login');
-        }
+        
     }
 
     public function delete(Request $request, $id)
