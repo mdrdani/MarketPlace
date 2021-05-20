@@ -52,6 +52,9 @@ class CheckoutController extends Controller
         ]);
         }
 
+        // delete cart data
+        Cart::where('users_id', Auth::user()->id)->delete();
+
         // config midtrans
         // Set your Merchant Server Key
         Config::$serverKey = config('services.midtrans.serverKey');
@@ -68,7 +71,7 @@ class CheckoutController extends Controller
                 'order_id' => $code,
                 'gross_amount' => (int) $request->total_price
             ],
-            'customer_detai;s' => [
+            'customer_details' => [
                 'first_name' => Auth::user()->name,
                 'email' => Auth::user()->email,
             ],
