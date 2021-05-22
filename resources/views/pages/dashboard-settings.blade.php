@@ -30,7 +30,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto d-none d-lg-flex">
                 <li class="nav-item dropdown">
                   <a
@@ -79,7 +79,7 @@
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> --}}
           </nav>
 
           <div
