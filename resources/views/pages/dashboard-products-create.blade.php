@@ -30,7 +30,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto d-none d-lg-flex">
                 <li class="nav-item dropdown">
                   <a
@@ -79,7 +79,7 @@
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> --}}
           </nav>
 
           <div
@@ -96,7 +96,9 @@
               <div class="dashboard-content">
                 <div class="row">
                   <div class="col-12">
-                    <form action="">
+                    <form action="{{ route('dashboard-product-store') }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
                       <div class="card">
                         <div class="card-body">
                           <div class="row">
@@ -108,8 +110,7 @@
                                   class="form-control"
                                   id="name"
                                   aria-describedby="name"
-                                  name="storeName"
-                                  value="Papel La Casa"
+                                  name="name"
                                 />
                               </div>
                             </div>
@@ -122,15 +123,17 @@
                                   id="price"
                                   aria-describedby="price"
                                   name="price"
-                                  value="200"
                                 />
                               </div>
                             </div>
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="price">Kategori</label>
-                                <select name="category" class="form-control" id="">
-                                  <option value="" disabled>Select Category</option>
+                                <select name="categories_id" class="form-control">
+                                      <option value="" disabled>Select Category</option>
+                                  @foreach ($categories as $category)
+                                      <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  @endforeach
                                 </select>
                               </div>
                             </div>
@@ -138,13 +141,12 @@
                               <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea
-                                  name="editor"
-                                  id=""
+                                  name="deskripsi"
+                                  id="editor"
                                   cols="30"
                                   rows="4"
                                   class="form-control"
                                 >
-The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air unit yet for unimaginable, all-day comfort. There's super breathable fabrics on the upper, while colours add a modern edge. Bring the past into the future with the Nike Air Max 2090, a bold look inspired by the DNA of the iconic Air Max 90. Brand-new Nike Air cushioning
                                 </textarea>
                               </div>
                             </div>
@@ -157,7 +159,7 @@ The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air uni
                                   class="form-control pt-1"
                                   id="thumbnails"
                                   aria-describedby="thumbnails"
-                                  name="thumbnails"
+                                  name="photo"
                                 />
                                 <small class="text-muted">
                                   Kamu dapat memilih lebih dari satu file
