@@ -96,7 +96,8 @@
               <div class="dashboard-content">
                 <div class="row">
                   <div class="col-12">
-                    <form action="">
+                    <form action="{{ route('dashboard-settings-redirect', 'dashboard-settings-store') }}" method="POST" enctype="multipart/form-data">
+                      @csrf
                       <div class="card">
                         <div class="card-body">
                           <div class="row">
@@ -108,8 +109,8 @@
                                   class="form-control"
                                   id="storeName"
                                   aria-describedby="emailHelp"
-                                  name="storeName"
-                                  value="Papel La Casa"
+                                  name="store_name"
+                                  value="{{ $user->store_name }}"
                                 />
                               </div>
                             </div>
@@ -118,12 +119,11 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="category">Category</label>
-                                <select
-                                  name="category"
-                                  id="category"
-                                  class="form-control"
-                                >
-                                  <option value="Furniture">Furniture</option>
+                                 <select name="categories_id" class="form-control">
+                                   <option value="{{ $user->categories_id }}">Tidak diganti</option>
+                                   @foreach ($categories as $category)
+                                      <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  @endforeach
                                 </select>
                               </div>
                             </div>
@@ -141,10 +141,10 @@
                                   <input
                                     class="custom-control-input"
                                     type="radio"
-                                    name="is_store_open"
+                                    name="store_status"
                                     id="openStoreTrue"
-                                    value="true"
-                                    checked
+                                    value="1"
+                                    {{ $user->store_status == 1 ? 'checked' : '' }}
                                   />
                                   <label
                                     class="custom-control-label"
@@ -158,9 +158,10 @@
                                   <input
                                     class="custom-control-input"
                                     type="radio"
-                                    name="is_store_open"
+                                    name="store_status"
                                     id="openStoreFalse"
-                                    value="false"
+                                    value="0"
+                                    {{ $user->store_status == 0 || $user->store_status == NULL ? 'checked' : '' }}
                                   />
                                   <label
                                     makasih
