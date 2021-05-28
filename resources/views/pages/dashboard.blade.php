@@ -78,7 +78,7 @@
                             {{ $transaction->transaction->user->name ?? '' }}
                           </div>
                           <div class="col-md-3">
-                            {{ $transaction->created_at ?? '' }}
+                            {{ Carbon\Carbon::parse($transaction->created_at)->locale('id')->isoFormat('LLL')}}
                           </div>
                           <div class="col-md-1 d-none d-md-block">
                             <img

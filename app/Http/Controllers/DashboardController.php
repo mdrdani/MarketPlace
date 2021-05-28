@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $transactions = TransactionDetail::with(['transaction.user', 'product.galleries'])
                                         ->whereHas('product', function($product){
                                             $product->where('users_id', Auth::user()->id);
-                                        });
+                                        })->orderByDesc('created_at')->limit(5);
 
         $revenue = $transactions->get()->reduce(function($carry, $item) {
             return $carry = $item->price;

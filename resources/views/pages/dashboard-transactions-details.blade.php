@@ -123,7 +123,7 @@
                                   Date of Transaction
                                 </div>
                                 <div class="product-subtitle">
-                                  {{ Carbon\Carbon::parse($transaction->created_at)->locale('id')->isoFormat('LL')}}
+                                  {{ Carbon\Carbon::parse($transaction->created_at)->locale('id')->isoFormat('LLL')}}
                                 </div>
                               </div>
                               <div class="col-12 col-md-6">
