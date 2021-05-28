@@ -139,7 +139,7 @@
                               <div class="col-md-1">
                                 <img
                                   src="{{ Storage::url($sell->product->galleries->first()->photo) }}"
-                                  alt="" class="w-58"
+                                  width="20px"
                                 />
                               </div>
                               <div class="col-md-4">
@@ -149,7 +149,7 @@
                                 {{ $sell->product->user->store_name }}
                               </div>
                               <div class="col-md-3">
-                                {{ $sell->created_at }}
+                                {{ Carbon\Carbon::parse($sell->created_at)->locale('id')->isoFormat('LLL')}}
                               </div>
                               <div class="col-md-1 d-none d-md-block">
                                 <img
@@ -182,7 +182,7 @@
                             <div class="col-md-1">
                               <img
                                 src="{{ Storage::url($buy->product->galleries->first()->photo) }}"
-                                alt="" class="w-58"
+                                width="20px"
                               />
                             </div>
                             <div class="col-md-4">
@@ -192,7 +192,7 @@
                               {{ $buy->product->user->store_name }}
                             </div>
                             <div class="col-md-3">
-                              {{ $buy->created_at }}
+                               {{ Carbon\Carbon::parse($buy->created_at)->locale('id')->isoFormat('LLL')}}
                             </div>
                             <div class="col-md-1 d-none d-md-block">
                               <img
