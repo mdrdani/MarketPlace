@@ -47,7 +47,7 @@
               >Gallery</a
             >
             <a
-              href="#"
+              href="{{ route('transaction.index') }}"
               class="list-group-item list-group-item-action"
               >Transactions</a
             >
@@ -107,7 +107,7 @@
                       alt=""
                       class="rounded-circle mr-2 profile-picture"
                     />
-                    Hi, Angga
+                    Hi, {{ Auth::user()->name }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/">Logout</a>
